@@ -1,0 +1,4 @@
+relate-db>=1.0.1
+groq>=0.9.0
+mcp>=1.0.0
+flask>=2.0.0
