@@ -832,7 +832,7 @@ loadStats();loadEntities();showFullGraph();setTimeout(()=>runQuery('semantic'),6
 """
 
 if __name__ == "__main__":
-    port = 8080
+    port = int(os.environ.get("PORT", 8080))
     store = STORE_PATH
     if "--store" in sys.argv:
         idx = sys.argv.index("--store")
@@ -846,6 +846,6 @@ if __name__ == "__main__":
     STORE_PATH = store
     _mem = AgentMemory(STORE_PATH)
     print(f"\n  Graph-Native Agent Memory")
-    print(f"  Web UI → http://localhost:{port}")
+    print(f"  Web UI → http://0.0.0.0:{port}")
     print(f"  Store  → {store}\n")
     app.run(host="0.0.0.0", port=port, debug=False, threaded=False)
