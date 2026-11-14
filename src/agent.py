@@ -28,7 +28,7 @@ from groq import Groq
 from src.memory_store import AgentMemory
 
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "YOUR_GROQ_API_KEY_HERE")
-MODEL = "qwen/qwen3.8-27b"
+MODEL = "openai/gpt-oss-120b"
 MAX_TOOL_ITERATIONS = 6
 
 # ── Tool schemas (what Groq sees) ────────────────────────────────
@@ -388,7 +388,7 @@ class MemoryAgent:
                 tools=TOOLS,
                 tool_choice="auto",
                 temperature=0.3,
-                max_tokens=1024,
+                max_tokens=800,
             )
 
             msg = response.choices[0].message
